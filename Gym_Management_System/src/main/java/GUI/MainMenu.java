@@ -82,10 +82,14 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void loginManagerbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginManagerbuttonActionPerformed
         ManagerLogin m = new ManagerLogin();
+        m.setVisible(true);
+        this.setVisible(false); 
     }//GEN-LAST:event_loginManagerbuttonActionPerformed
 
     private void loginTrainerbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginTrainerbuttonActionPerformed
         TrainerLogin t = new TrainerLogin();
+        t.setVisible(true);
+        this.setVisible(false); 
     }//GEN-LAST:event_loginTrainerbuttonActionPerformed
 
     /**
