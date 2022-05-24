@@ -4,10 +4,63 @@
  */
 package Class;
 
+import java.io.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
  */
 public class TrainerLoginClass {
+    private String userid;
+    private String password;
+
+    public TrainerLoginClass() {
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
     
+    //Login File Handling
+    private File f = new File("TrainerAccount.txt");
+    
+    public boolean login(String id, String pw){
+        boolean found = false;
+        BufferedReader br = null;
+        try{
+            br = new BufferedReader(new FileReader(f));
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                String[] rec = line.split(",");
+                if(rec[0].equals(id) && rec[1].equals(pw)){
+                    found = true;
+                    break;
+                }
+            }
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null, "Oops! Login fail.");
+        }finally{
+            if(br != null){
+                try{
+                    br.close();
+                }catch(IOException e){
+                    JOptionPane.showMessageDialog(null, "Fail to loading file");
+                }
+            }
+        }
+        return found;
+    }
 }
