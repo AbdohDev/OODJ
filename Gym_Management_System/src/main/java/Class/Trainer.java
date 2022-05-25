@@ -12,8 +12,76 @@ import javax.swing.JOptionPane;
  * @author ASUS
  */
 public class Trainer extends Staff{
-
+    private String exp;
+    private String goal;
+    
     public Trainer() {
+    }
+
+    @Override
+    public String getUserid() {
+        return userid;
+    }
+    
+    @Override
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getContact() {
+        return contact;
+    }
+
+    @Override
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getExp() {
+        return exp;
+    }
+
+    public void setExp(String exp) {
+        this.exp = exp;
+    }
+
+    public String getGoal() {
+        return goal;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
     }
     
     //Login File Handling
@@ -45,5 +113,10 @@ public class Trainer extends Staff{
             }
         }
         return found;
+    }
+    
+    public int register(){
+        int create = 0;
+        return create;
     }
 }

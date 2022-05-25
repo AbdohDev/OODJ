@@ -11,12 +11,9 @@ import javax.swing.JOptionPane;
  *
  * @author ASUS
  */
-public class Customer {
+public class Customer extends Person{
     private String userid;
-    private String name;
-    private String contact;
-    private String email;
-
+    
     public Customer() {
     }
 
@@ -28,26 +25,32 @@ public class Customer {
         this.userid = userid;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
 
+    @Override
     public String getContact() {
         return contact;
     }
 
+    @Override
     public void setContact(String contact) {
         this.contact = contact;
     }
 
+    @Override
     public String getEmail() {
         return email;
     }
-
+    
+    @Override
     public void setEmail(String email) {
         this.email = email;
     }
@@ -66,7 +69,7 @@ public class Customer {
         }
         
         try{
-            if(id.length() != 0 && name.length() != 0 && contact.length() != 0 && email.length() == 0){
+            if(id.length() != 0 && name.length() != 0 && contact.length() != 0 && email.length() != 0){
                 w = new FileWriter(f, true);
                 w.write(""+ id + "," + name + "," + contact + "," + email);
                 w.write(System.getProperty("line.separator"));

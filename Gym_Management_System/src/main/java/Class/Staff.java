@@ -8,7 +8,7 @@ package Class;
  *
  * @author ASUS
  */
-public abstract class Staff {
+public abstract class Staff extends Person{
     protected String userid;
     protected String password;
 

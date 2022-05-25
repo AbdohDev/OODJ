@@ -1,2 +1,5 @@
 C0001,ori,0126780805,lohyuenwei@gmail.com
 C0002,Abdu,0123456789,abdu@gmail.com
+C0003,haoming,0129876543,hao88@gmail.com
+C0004,sky,018974563,sky66@gmail.com
+C0005,malcolm,019876583,malccc@gmail.com
