@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
  *
  * @author ASUS
  */
-public class LoginasTrainer extends Staff{
+public class Trainer extends Staff{
 
-    public LoginasTrainer() {
+    public Trainer() {
     }
     
     //Login File Handling

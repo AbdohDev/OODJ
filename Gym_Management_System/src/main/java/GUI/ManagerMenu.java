@@ -68,6 +68,11 @@ public class ManagerMenu extends javax.swing.JFrame {
         jLabel1.setText("Manager Main Menu");
 
         returnbutton.setText("< Return");
+        returnbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnbuttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,7 +130,9 @@ public class ManagerMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerCustButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCustButtonActionPerformed
-        // TODO add your handling code here:
+        ManagerRegisterCustomer r = new ManagerRegisterCustomer();
+        r.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_registerCustButtonActionPerformed
 
     private void registerTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerTrainButtonActionPerformed
@@ -135,6 +142,12 @@ public class ManagerMenu extends javax.swing.JFrame {
     private void viewBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBookButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_viewBookButtonActionPerformed
+
+    private void returnbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbuttonActionPerformed
+        MainMenu main = new MainMenu();
+        main.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_returnbuttonActionPerformed
 
     /**
      * @param args the command line arguments

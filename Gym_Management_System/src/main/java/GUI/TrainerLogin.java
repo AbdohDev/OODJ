@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import Class.LoginasTrainer;
+import Class.Trainer;
 import javax.swing.JOptionPane;
 
 /**
@@ -130,7 +130,7 @@ public class TrainerLogin extends javax.swing.JFrame {
     private void TrainerLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrainerLoginButtonActionPerformed
         String mid = this.UseridTextbox.getText();
         String mpw = new String(this.PasswordTextbox.getPassword());
-        LoginasTrainer m = new LoginasTrainer();
+        Trainer m = new Trainer();
         boolean found = m.login(mid,mpw);
         if (found){
             JOptionPane.showMessageDialog(null,"Login Successfull!");

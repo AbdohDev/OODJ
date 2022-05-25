@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-import Class.LoginasManager;
+import Class.Manager;
 import javax.swing.JOptionPane;
 
 /**
@@ -127,7 +127,7 @@ public class ManagerLogin extends javax.swing.JFrame {
     private void ManagerLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManagerLoginButtonActionPerformed
         String mid = this.UseridTextbox.getText();
         String mpw = new String(this.PasswordTextbox.getPassword());
-        LoginasManager m = new LoginasManager();
+        Manager m = new Manager();
         boolean found = m.login(mid,mpw);
         if (found){
             JOptionPane.showMessageDialog(null,"Login Successfull!");

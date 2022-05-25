@@ -12,9 +12,9 @@ import javax.swing.JOptionPane;
  *
  * @author ASUS
  */
-public class LoginasManager extends Staff{
+public class Manager extends Staff{
 
-    public LoginasManager() {
+    public Manager() {
     }
     
     //Login File Handling
