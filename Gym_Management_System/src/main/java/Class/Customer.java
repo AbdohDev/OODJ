@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class Customer extends Person{
     private String userid;
+    File f = new File("CustomerAccount.txt");
     
     public Customer() {
     }
@@ -44,19 +45,9 @@ public class Customer extends Person{
     public void setContact(String contact) {
         this.contact = contact;
     }
-
-    @Override
-    public String getEmail() {
-        return email;
-    }
     
-    @Override
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    File f = new File("CustomerAccount.txt");
-    public int register(String id, String name, String contact, String email){
+    //Register
+    public int register(String id, String name, String contact){
         int create = 0;
         FileWriter w = null;
         
@@ -69,9 +60,9 @@ public class Customer extends Person{
         }
         
         try{
-            if(id.length() != 0 && name.length() != 0 && contact.length() != 0 && email.length() != 0){
+            if(id.length() != 0 && name.length() != 0 && contact.length() != 0){
                 w = new FileWriter(f, true);
-                w.write(""+ id + "," + name + "," + contact + "," + email);
+                w.write(""+ id + "," + name + "," + contact);
                 w.write(System.getProperty("line.separator"));
                 w.close();
                 create = 1;

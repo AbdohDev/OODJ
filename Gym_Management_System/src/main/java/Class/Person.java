@@ -11,7 +11,6 @@ package Class;
 public abstract class Person {
     protected String name;
     protected String contact;
-    protected String email;
 
     public Person() {
     }
@@ -30,14 +29,6 @@ public abstract class Person {
 
     public void setContact(String contact) {
         this.contact = contact;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
     
     

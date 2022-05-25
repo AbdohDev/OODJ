@@ -130,13 +130,15 @@ public class ManagerMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerCustButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCustButtonActionPerformed
-        ManagerRegisterCustomer r = new ManagerRegisterCustomer();
-        r.setVisible(true);
+        ManagerRegisterCustomer rc = new ManagerRegisterCustomer();
+        rc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_registerCustButtonActionPerformed
 
     private void registerTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerTrainButtonActionPerformed
-        // TODO add your handling code here:
+        ManagerRegisterTrainer rt = new ManagerRegisterTrainer();
+        rt.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_registerTrainButtonActionPerformed
 
     private void viewBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBookButtonActionPerformed

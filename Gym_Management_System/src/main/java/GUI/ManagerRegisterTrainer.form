@@ -41,114 +41,97 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Component id="returnbutton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="contLabel" max="32767" attributes="0"/>
+                      <Component id="nameLabel" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="idLabel" alignment="1" min="-2" pref="76" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="nametxb" max="32767" attributes="0"/>
+                  <Component id="idtxb" max="32767" attributes="0"/>
+                  <Component id="pwtxb" pref="120" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="nameLabel2" min="-2" pref="95" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="comboGoal" min="-2" pref="125" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="emailLabel" min="-2" pref="95" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="conttxb" min="-2" pref="125" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
                       <Component id="registerButton" min="-2" pref="81" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="returnbutton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" pref="286" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="nameLabel" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="idLabel" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="contLabel" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="emailLabel" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="nametxb" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="idtxb" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="conttxb" max="32767" attributes="0"/>
-                                  <Component id="pwtxb" pref="101" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="nameLabel2" max="32767" attributes="0"/>
-                                  <Component id="nameLabel1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="idLabel1" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="emailtxb" min="-2" pref="124" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="comboExp" max="32767" attributes="0"/>
-                                  <Component id="comboGoal" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="286" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="returnbutton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="54" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="54" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="returnbutton" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="idLabel" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="idtxb" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="idLabel" min="-2" pref="46" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="nameLabel" min="-2" pref="46" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="conttxb" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="emailLabel" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="idtxb" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="nametxb" alignment="0" max="32767" attributes="0"/>
-                          <Component id="nameLabel" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="nameLabel2" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="comboGoal" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="nametxb" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="contLabel" pref="44" max="32767" attributes="0"/>
                           <Component id="pwtxb" max="32767" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="idLabel1" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="emailtxb" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nameLabel1" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="comboExp" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nameLabel2" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="comboGoal" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="emailLabel" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="conttxb" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="registerButton" pref="36" max="32767" attributes="0"/>
+              <Component id="registerButton" pref="44" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -214,21 +197,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="idLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Email:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="emailtxb">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailtxbActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="nameLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Training Experience:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="nameLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Fitness Goal:"/>
@@ -251,24 +219,10 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboExp">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="No experience"/>
-            <StringItem index="1" value="Less than 1 year"/>
-            <StringItem index="2" value="More than 1 year"/>
-          </StringArray>
-        </Property>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="pwtxb">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboExpActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pwtxbActionPerformed"/>
       </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="pwtxb">
     </Component>
   </SubComponents>
 </Form>

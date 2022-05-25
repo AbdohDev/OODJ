@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
  * @author ASUS
  */
 public class Trainer extends Staff{
-    private String exp;
     private String goal;
+    private File f = new File("TrainerAccount.txt");
     
     public Trainer() {
     }
@@ -58,24 +58,6 @@ public class Trainer extends Staff{
         this.contact = contact;
     }
 
-    @Override
-    public String getEmail() {
-        return email;
-    }
-
-    @Override
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getExp() {
-        return exp;
-    }
-
-    public void setExp(String exp) {
-        this.exp = exp;
-    }
-
     public String getGoal() {
         return goal;
     }
@@ -84,9 +66,7 @@ public class Trainer extends Staff{
         this.goal = goal;
     }
     
-    //Login File Handling
-    private File f = new File("TrainerAccount.txt");
-    
+    //Login
     @Override
     public boolean login(String id, String pw){
         boolean found = false;
@@ -96,7 +76,7 @@ public class Trainer extends Staff{
             String line = "";
             while ((line = br.readLine()) != null) {
                 String[] rec = line.split(",");
-                if(rec[0].equals(id) && rec[1].equals(pw)){
+                if(rec[0].equals(id) && rec[2].equals(pw)){
                     found = true;
                     break;
                 }
@@ -115,8 +95,34 @@ public class Trainer extends Staff{
         return found;
     }
     
-    public int register(){
+    public int register(String id,String name,String pw,String cont,String goal){
         int create = 0;
+        FileWriter w = null;
+        
+        if(!f.exists()) {
+            try{
+                f.createNewFile();
+            }catch(IOException e){
+                System.out.println("Unable to create file due to " + e);
+            }
+        }
+        
+        try{
+            if(id.length() != 0 && name.length() != 0 &&
+                   pw.length() != 0 && cont.length() != 0 &&
+                    goal.length() != 0){
+                w = new FileWriter(f, true);
+                w.write(""+ id + "," + name + "," + 
+                        pw + "," + cont + "," + goal);
+                w.write(System.getProperty("line.separator"));
+                w.close();
+                create = 1;
+            }else{
+                create = 2;
+            }
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null,"Oops! Register Fail!");
+        }
         return create;
     }
 }
