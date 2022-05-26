@@ -5,7 +5,9 @@
 
 package Class;
 
+import GUI.ManagerLogin;
 import java.io.*;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -47,4 +49,10 @@ public class Manager extends Staff{
         }
         return found;
     }
+    
+    File flog = new File("Logging_Manager.txt");
+    public void logging(){
+        
+    }
+    
 }

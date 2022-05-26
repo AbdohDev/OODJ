@@ -4,6 +4,15 @@
  */
 package GUI;
 
+import Class.Trainer;
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
@@ -15,8 +24,9 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
      */
     public ManagerManageTrainer() {
         initComponents();
+        trainerT.setAutoCreateRowSorter(true);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,39 +37,396 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        trainerT = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
+        idtxb = new javax.swing.JTextField();
+        nameLabel = new javax.swing.JLabel();
+        nametxb = new javax.swing.JTextField();
+        contLabel = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        conttxb = new javax.swing.JTextField();
+        nameLabel2 = new javax.swing.JLabel();
+        comboGoal = new javax.swing.JComboBox<>();
+        pwtxb = new javax.swing.JTextField();
+        returnBttn = new javax.swing.JButton();
+        deleteB = new javax.swing.JButton();
+        exportB = new javax.swing.JButton();
+        updateB = new javax.swing.JButton();
+        importB = new javax.swing.JButton();
+        addB = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        trainerT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Booking ID", "Customer ID", "Goal", "Trainer ID", "Training Date", "Starting Time", "Duration", "Ending Time", "Amount"
+                "Trainer ID", "Name", "Password", "Contact", "Goal"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        trainerT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                trainerTMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(trainerT);
+
+        jLabel1.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
+        jLabel1.setText("Manager: Manage Trainer");
+
+        idLabel.setText("Trainer ID:");
+
+        idtxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idtxbActionPerformed(evt);
+            }
+        });
+
+        nameLabel.setText("Name:");
+
+        nametxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nametxbActionPerformed(evt);
+            }
+        });
+
+        contLabel.setText("Password:");
+
+        emailLabel.setText("Contact:");
+
+        conttxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conttxbActionPerformed(evt);
+            }
+        });
+
+        nameLabel2.setText("Fitness Goal:");
+
+        comboGoal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lose Weight", "Build Muscle", "Wellness" }));
+        comboGoal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboGoalActionPerformed(evt);
+            }
+        });
+
+        pwtxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pwtxbActionPerformed(evt);
+            }
+        });
+
+        returnBttn.setText("< Return");
+        returnBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnBttnActionPerformed(evt);
+            }
+        });
+
+        deleteB.setText("Delete");
+        deleteB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBActionPerformed(evt);
+            }
+        });
+
+        exportB.setText("Export");
+        exportB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportBActionPerformed(evt);
+            }
+        });
+
+        updateB.setText("Update");
+        updateB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBActionPerformed(evt);
+            }
+        });
+
+        importB.setText("Import");
+        importB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importBActionPerformed(evt);
+            }
+        });
+
+        addB.setText("Add");
+        addB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(contLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(idLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(returnBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(nametxb)
+                                    .addComponent(idtxb)
+                                    .addComponent(pwtxb, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(nameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboGoal, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(conttxb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(importB, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(exportB, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(updateB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(deleteB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(272, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(returnBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(conttxb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(62, 62, 62)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(nameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(comboGoal, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                .addComponent(idtxb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(nametxb, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(contLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(pwtxb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(21, 21, 21))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(exportB, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(importB, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addB, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(updateB, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteB, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void idtxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idtxbActionPerformed
+
+    private void nametxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nametxbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nametxbActionPerformed
+
+    private void conttxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conttxbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_conttxbActionPerformed
+
+    private void comboGoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboGoalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboGoalActionPerformed
+
+    private void returnBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttnActionPerformed
+        ManagerMenu mm = new ManagerMenu();
+        mm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_returnBttnActionPerformed
+
+    private void pwtxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwtxbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pwtxbActionPerformed
+
+    private void deleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBActionPerformed
+        DefaultTableModel tm = (DefaultTableModel)trainerT.getModel();
+
+        if(trainerT.getSelectedRowCount() == 1){
+            tm.removeRow(trainerT.getSelectedRow());
+            JOptionPane.showMessageDialog(this, "Delete Successful!");
+        }
+        else{
+            if(trainerT.getRowCount() == 0){
+                JOptionPane.showMessageDialog(this, "The table is empty.\nPlease import.");
+            }
+            else{
+                JOptionPane.showMessageDialog(this,
+                    "Please select single row for delete","Warning:",JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_deleteBActionPerformed
+
+    private void exportBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBActionPerformed
+        File f = new File("TrainerAccount.txt");
+        try{
+            FileWriter fw = new FileWriter(f);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            for (int i = 0; i < trainerT.getRowCount(); i++) {
+                for (int j = 0; j < trainerT.getColumnCount(); j++) {
+                    bw.write(trainerT.getModel().getValueAt(i,j).toString()+",");
+                }
+                bw.newLine();
+            }
+
+            bw.close();
+            fw.close();
+            JOptionPane.showMessageDialog(this, "Export Successful!");
+        } catch (IOException ex) {
+            Logger.getLogger(ManagerManageBooking.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_exportBActionPerformed
+
+    private void updateBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBActionPerformed
+        DefaultTableModel tm = (DefaultTableModel)trainerT.getModel();
+
+        if(trainerT.getSelectedRowCount() == 1){
+            String tid = idtxb.getText();
+            String name = nametxb.getText();
+            String pw = pwtxb.getText();
+            String cont = conttxb.getText();
+            String goal = comboGoal.getSelectedItem().toString();
+
+            tm.setValueAt(tid,trainerT.getSelectedRow(),0);
+            tm.setValueAt(name,trainerT.getSelectedRow(),1);
+            tm.setValueAt(pw,trainerT.getSelectedRow(),2);
+            tm.setValueAt(cont,trainerT.getSelectedRow(),3);
+            tm.setValueAt(goal,trainerT.getSelectedRow(),4);
+
+            JOptionPane.showMessageDialog(this, "Update Successful!");
+
+        }else if(trainerT.getSelectedRowCount() == 0){
+            JOptionPane.showMessageDialog(this, "The table is empty.\nPlease import.");
+        }else{
+            JOptionPane.showMessageDialog(this, "Please select a record to modify~");
+        }
+    }//GEN-LAST:event_updateBActionPerformed
+
+    private void importBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importBActionPerformed
+        File fb = new File("TrainerAccount.txt");
+        try {
+            FileReader fr = new FileReader(fb);
+            BufferedReader br3 = new BufferedReader(fr);
+
+            DefaultTableModel tm = (DefaultTableModel)trainerT.getModel();
+            Object[] records = br3.lines().toArray();
+
+            for (int i = 0; i < records.length; i++) {
+                String[] row = records[i].toString().split(",");
+                tm.addRow(row);
+            }
+            
+            
+            
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(this,
+                "Oops, file not found.",
+                "Warning:",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_importBActionPerformed
+
+    private void trainerTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trainerTMouseClicked
+        DefaultTableModel tm = (DefaultTableModel)trainerT.getModel();
+        
+        String tid = tm.getValueAt(trainerT.getSelectedRow(),0).toString();
+        String name = tm.getValueAt(trainerT.getSelectedRow(),1).toString();
+        String pw = tm.getValueAt(trainerT.getSelectedRow(),2).toString();
+        String cont = tm.getValueAt(trainerT.getSelectedRow(),3).toString();
+        String goal = tm.getValueAt(trainerT.getSelectedRow(),4).toString();
+        
+        idtxb.setText(tid);
+        nametxb.setText(name);
+        pwtxb.setText(pw);
+        conttxb.setText(cont);
+        comboGoal.setSelectedItem(goal);
+        
+    }//GEN-LAST:event_trainerTMouseClicked
+
+    private void addBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBActionPerformed
+        DefaultTableModel tm = (DefaultTableModel)trainerT.getModel();
+        
+        if(trainerT.getRowCount() != 0){
+            String tid = idtxb.getText();
+            String name = nametxb.getText();
+            String pw = pwtxb.getText();
+            String cont = conttxb.getText();
+            String goal = comboGoal.getSelectedItem().toString();
+
+            Trainer t = new Trainer();
+            int create = t.register(tid,name,pw,cont,goal);
+            if(create == 1){
+                JOptionPane.showMessageDialog(null,"Trainer Registration Success!");
+            }else if(create == 2){
+                JOptionPane.showMessageDialog(this,
+                        "Please fill up complete details.",
+                        "Warning:",JOptionPane.WARNING_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this,
+                        "Error\nPlease try again.",
+                        "Warning:",JOptionPane.WARNING_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "The table is empty.\nPlease import.");
+        }
+        
+        idtxb.setText("");
+        nametxb.setText("");
+        pwtxb.setText("");
+        conttxb.setText("");
+    }//GEN-LAST:event_addBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,7 +464,24 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addB;
+    private javax.swing.JComboBox<String> comboGoal;
+    private javax.swing.JLabel contLabel;
+    private javax.swing.JTextField conttxb;
+    private javax.swing.JButton deleteB;
+    private javax.swing.JLabel emailLabel;
+    private javax.swing.JButton exportB;
+    private javax.swing.JLabel idLabel;
+    private javax.swing.JTextField idtxb;
+    private javax.swing.JButton importB;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nameLabel2;
+    private javax.swing.JTextField nametxb;
+    private javax.swing.JTextField pwtxb;
+    private javax.swing.JButton returnBttn;
+    private javax.swing.JTable trainerT;
+    private javax.swing.JButton updateB;
     // End of variables declaration//GEN-END:variables
 }

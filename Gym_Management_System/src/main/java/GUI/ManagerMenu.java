@@ -26,9 +26,7 @@ public class ManagerMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bookTrainButton = new javax.swing.JButton();
         registerCustButton = new javax.swing.JButton();
-        registerTrainButton = new javax.swing.JButton();
         manageTrainButton = new javax.swing.JButton();
         generateRepButton = new javax.swing.JButton();
         viewBookButton = new javax.swing.JButton();
@@ -37,24 +35,10 @@ public class ManagerMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        bookTrainButton.setText("Book Training");
-        bookTrainButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bookTrainButtonActionPerformed(evt);
-            }
-        });
-
         registerCustButton.setText("Register Customer");
         registerCustButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerCustButtonActionPerformed(evt);
-            }
-        });
-
-        registerTrainButton.setText("Register Trainer");
-        registerTrainButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerTrainButtonActionPerformed(evt);
             }
         });
 
@@ -92,15 +76,11 @@ public class ManagerMenu extends javax.swing.JFrame {
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(viewBookButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(bookTrainButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(registerCustButton)))
+                    .addComponent(registerCustButton))
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(generateRepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(manageTrainButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(registerTrainButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(generateRepButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageTrainButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(95, 95, 95))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,25 +95,19 @@ public class ManagerMenu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
-                .addComponent(returnbutton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(returnbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(registerTrainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(manageTrainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(registerCustButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bookTrainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registerCustButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageTrainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(generateRepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(81, 81, 81))
+                .addGap(105, 105, 105))
         );
 
         pack();
@@ -144,12 +118,6 @@ public class ManagerMenu extends javax.swing.JFrame {
         rc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_registerCustButtonActionPerformed
-
-    private void registerTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerTrainButtonActionPerformed
-        ManagerRegisterTrainer rt = new ManagerRegisterTrainer();
-        rt.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_registerTrainButtonActionPerformed
 
     private void viewBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBookButtonActionPerformed
         ManagerManageBooking mmb = new ManagerManageBooking();
@@ -162,12 +130,6 @@ public class ManagerMenu extends javax.swing.JFrame {
         main.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_returnbuttonActionPerformed
-
-    private void bookTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookTrainButtonActionPerformed
-        ManagerBookTraining mbt = new ManagerBookTraining();
-        mbt.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_bookTrainButtonActionPerformed
 
     private void manageTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageTrainButtonActionPerformed
         ManagerManageTrainer mmt = new ManagerManageTrainer();
@@ -211,12 +173,10 @@ public class ManagerMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bookTrainButton;
     private javax.swing.JButton generateRepButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageTrainButton;
     private javax.swing.JButton registerCustButton;
-    private javax.swing.JButton registerTrainButton;
     private javax.swing.JButton returnbutton;
     private javax.swing.JButton viewBookButton;
     // End of variables declaration//GEN-END:variables

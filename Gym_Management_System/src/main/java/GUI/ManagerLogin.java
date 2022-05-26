@@ -4,6 +4,7 @@
  */
 package GUI;
 import Class.Manager;
+import java.util.logging.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +18,22 @@ public class ManagerLogin extends javax.swing.JFrame {
      */
     public ManagerLogin() {
         initComponents();
+    }
+    private static final Logger L = Logger.getLogger("MyLog");
+    
+    public static void init(){
+        FileHandler fh;
+        try {
+            fh = new FileHandler("LogFile.log",true);
+            L.addHandler(fh);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fh.setFormatter(formatter);
+            
+            L.info("Logger Initialized");
+            
+        } catch (Exception e) {
+            L.log(Level.WARNING, "Exception: ", e);
+        }
     }
 
     /**
@@ -174,7 +191,7 @@ public class ManagerLogin extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        init();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
