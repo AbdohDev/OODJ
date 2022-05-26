@@ -92,6 +92,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Book Training"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bookTrainButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="registerCustButton">
       <Properties>
@@ -121,7 +124,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="viewBookButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="View Booking"/>
+        <Property name="text" type="java.lang.String" value="Manage Booking"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewBookButtonActionPerformed"/>

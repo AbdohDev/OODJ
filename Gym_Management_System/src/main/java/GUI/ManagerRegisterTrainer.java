@@ -92,7 +92,7 @@ public class ManagerRegisterTrainer extends javax.swing.JFrame {
 
         nameLabel2.setText("Fitness Goal:");
 
-        comboGoal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Loss Weight", "Build Muscle", "Wellness" }));
+        comboGoal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lose Weight", "Build Muscle", "Wellness" }));
         comboGoal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboGoalActionPerformed(evt);

@@ -1,4 +1,4 @@
 T0001,billie,eilish,0169856354,Wellness
 T0002,adele,isme55,0189638521,Build Muscle
-T0003,bruno,34Mars,0128563953,Loss Weight
+T0003,bruno,34Mars,0128563953,Lose Weight
 T0004,Lady,GAGA,012963741852,Wellness

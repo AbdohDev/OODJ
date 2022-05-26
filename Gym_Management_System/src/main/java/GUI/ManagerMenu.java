@@ -38,6 +38,11 @@ public class ManagerMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bookTrainButton.setText("Book Training");
+        bookTrainButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bookTrainButtonActionPerformed(evt);
+            }
+        });
 
         registerCustButton.setText("Register Customer");
         registerCustButton.addActionListener(new java.awt.event.ActionListener() {
@@ -57,7 +62,7 @@ public class ManagerMenu extends javax.swing.JFrame {
 
         generateRepButton.setText("Generate report");
 
-        viewBookButton.setText("View Booking");
+        viewBookButton.setText("Manage Booking");
         viewBookButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewBookButtonActionPerformed(evt);
@@ -150,6 +155,12 @@ public class ManagerMenu extends javax.swing.JFrame {
         main.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_returnbuttonActionPerformed
+
+    private void bookTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookTrainButtonActionPerformed
+        ManagerBookTraining mbt = new ManagerBookTraining();
+        mbt.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bookTrainButtonActionPerformed
 
     /**
      * @param args the command line arguments
