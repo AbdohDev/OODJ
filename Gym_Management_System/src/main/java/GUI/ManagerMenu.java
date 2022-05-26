@@ -59,6 +59,11 @@ public class ManagerMenu extends javax.swing.JFrame {
         });
 
         manageTrainButton.setText("Manage Trainer");
+        manageTrainButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageTrainButtonActionPerformed(evt);
+            }
+        });
 
         generateRepButton.setText("Generate report");
 
@@ -147,7 +152,9 @@ public class ManagerMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_registerTrainButtonActionPerformed
 
     private void viewBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBookButtonActionPerformed
-        // TODO add your handling code here:
+        ManagerManageBooking mmb = new ManagerManageBooking();
+        mmb.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_viewBookButtonActionPerformed
 
     private void returnbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbuttonActionPerformed
@@ -161,6 +168,12 @@ public class ManagerMenu extends javax.swing.JFrame {
         mbt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bookTrainButtonActionPerformed
+
+    private void manageTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageTrainButtonActionPerformed
+        ManagerManageTrainer mmt = new ManagerManageTrainer();
+        mmt.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_manageTrainButtonActionPerformed
 
     /**
      * @param args the command line arguments
