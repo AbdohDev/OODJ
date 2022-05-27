@@ -23,6 +23,8 @@ public class TrainerFeedback extends javax.swing.JFrame {
      */
     public TrainerFeedback() {
         initComponents();
+        bookTable.setAutoCreateRowSorter(true);
+
     }
 
     /**
