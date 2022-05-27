@@ -55,6 +55,11 @@ public class ManagerMenu extends javax.swing.JFrame {
         });
 
         generateRepButton.setText("Generate report");
+        generateRepButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateRepButtonActionPerformed(evt);
+            }
+        });
 
         viewBookButton.setText("Manage Booking");
         viewBookButton.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +156,10 @@ public class ManagerMenu extends javax.swing.JFrame {
         mmt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_manageTrainButtonActionPerformed
+
+    private void generateRepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateRepButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_generateRepButtonActionPerformed
 
     /**
      * @param args the command line arguments
