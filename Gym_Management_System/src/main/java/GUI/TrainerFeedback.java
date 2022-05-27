@@ -36,7 +36,7 @@ public class TrainerFeedback extends javax.swing.JFrame {
         int x = (int) dim.getWidth() / 2 - this.getWidth() / 2;
         int y = (int) dim.getHeight() / 2 - this.getHeight() / 2;
         this.setLocation(x, y);
-
+        setTitle("Trainer: collect payment & provide feedback ");
     }
 
     /**
@@ -248,9 +248,9 @@ public class TrainerFeedback extends javax.swing.JFrame {
                                 .addComponent(deleteB, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(229, 229, 229))
+                .addContainerGap())
         );
 
         pack();

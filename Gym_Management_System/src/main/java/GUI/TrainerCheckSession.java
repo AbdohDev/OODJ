@@ -4,12 +4,16 @@
  */
 package GUI;
 
+import Class.Booking;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Logger;
@@ -53,14 +57,15 @@ public class TrainerCheckSession extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         bookTable = new javax.swing.JTable();
         returnbutton = new javax.swing.JButton();
-        Customer_ID = new javax.swing.JTextField();
+        Trainer_ID = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        exportB1 = new javax.swing.JButton();
+        ImportSession1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ImportSession.setText("Import");
+        ImportSession.setText("Search");
         ImportSession.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ImportSessionActionPerformed(evt);
@@ -89,92 +94,118 @@ public class TrainerCheckSession extends javax.swing.JFrame {
             }
         });
 
-        Customer_ID.addActionListener(new java.awt.event.ActionListener() {
+        Trainer_ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Customer_IDActionPerformed(evt);
+                Trainer_IDActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Filter by Trainer ID");
 
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
+        jLabel2.setText("Trainer Check Sessions");
+
+        exportB1.setText("Export");
+        exportB1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                exportB1ActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
-        jLabel2.setText("Trainer Check Sessions");
+        ImportSession1.setText("Import");
+        ImportSession1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImportSession1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(returnbutton)
-                .addGap(177, 177, 177)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ImportSession, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel1)
-                        .addGap(33, 33, 33)
-                        .addComponent(Customer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(jButton1)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(returnbutton)
+                                .addGap(177, 177, 177)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel1)
+                                .addGap(33, 33, 33)
+                                .addComponent(Trainer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(ImportSession, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(exportB1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ImportSession1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(returnbutton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(ImportSession, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(Customer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(returnbutton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel2)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(41, Short.MAX_VALUE)
+                        .addComponent(ImportSession1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1)
+                                .addComponent(Trainer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ImportSession, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(exportB1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(48, 48, 48)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ImportSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImportSessionActionPerformed
-        File tb = new File("Booking.txt");
+        File fb = new File("Booking.txt");
         try {
-            FileReader fr = new FileReader(tb);
+            FileReader fr = new FileReader(fb);
             BufferedReader br3 = new BufferedReader(fr);
+
+            DefaultTableModel tm = (DefaultTableModel) bookTable.getModel();
             
-            DefaultTableModel tm = (DefaultTableModel)bookTable.getModel();
+            tm.setRowCount(0); //this set the row to zero to avoid duplication of records
             Object[] records = br3.lines().toArray();
-            
+
+            String trainerId = Trainer_ID.getText();
             for (int i = 0; i < records.length; i++) {
                 String[] row = records[i].toString().split(",");
-                tm.addRow(row);
+
+                if (row[3].equals(trainerId))  {
+                    tm.addRow(row);
+                }
+
             }
+
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(this,
                     "Oops, file not found.",
-                    "Warning:",JOptionPane.WARNING_MESSAGE);
+                    "Warning:", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_ImportSessionActionPerformed
 
@@ -201,13 +232,54 @@ public class TrainerCheckSession extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_returnbuttonActionPerformed
 
-    private void Customer_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Customer_IDActionPerformed
+    private void Trainer_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Trainer_IDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Customer_IDActionPerformed
+    }//GEN-LAST:event_Trainer_IDActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void exportB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportB1ActionPerformed
+        Booking b = new Booking();
+        int export = 0;
+        File f = new File("Booking.txt");
+        try{
+            FileWriter fw = new FileWriter(f);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            for (int i = 0; i < bookTable.getRowCount(); i++) {
+                for (int j = 0; j < bookTable.getColumnCount(); j++) {
+                    bw.write(bookTable.getModel().getValueAt(i,j).toString()+",");
+                }
+                bw.newLine();
+            }
+            bw.close();
+            fw.close();
+            export = 1;
+        } catch (IOException ex) {
+            Logger.getLogger(ManagerManageBooking.class.getName()).log(Level.SEVERE, null, ex);
+            export = 2;
+        }
+
+        b.manage(export);
+    }//GEN-LAST:event_exportB1ActionPerformed
+
+    private void ImportSession1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImportSession1ActionPerformed
+        File fb = new File("Booking.txt");
+        try {
+            FileReader fr = new FileReader(fb);
+            BufferedReader br3 = new BufferedReader(fr);
+
+            DefaultTableModel tm = (DefaultTableModel) bookTable.getModel();
+            Object[] records = br3.lines().toArray();
+
+            for (int i = 0; i < records.length; i++) {
+                String[] row = records[i].toString().split(",");
+                tm.addRow(row);
+            }
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(this,
+                    "Oops, file not found.",
+                    "Warning:", JOptionPane.WARNING_MESSAGE);
+        }
+     }//GEN-LAST:event_ImportSession1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,10 +317,11 @@ public class TrainerCheckSession extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Customer_ID;
     private javax.swing.JButton ImportSession;
+    private javax.swing.JButton ImportSession1;
+    private javax.swing.JTextField Trainer_ID;
     private javax.swing.JTable bookTable;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton exportB1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
