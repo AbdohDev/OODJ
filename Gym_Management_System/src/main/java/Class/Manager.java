@@ -73,4 +73,14 @@ public class Manager extends Staff{
         }
     }
     
+    //Update Trainer
+    public void managetrainer(int export){
+        if(export == 1){
+            JOptionPane.showMessageDialog(null, "Export Successful!\nThe file is modified.");
+        }else{
+            JOptionPane.showMessageDialog(null, "Export Fail!\nThe file is not modified.");
+        }
+        
+    }
+    
 }

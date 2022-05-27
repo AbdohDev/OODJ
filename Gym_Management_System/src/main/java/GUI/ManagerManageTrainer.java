@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import Class.Manager;
 import Class.Trainer;
 import java.io.*;
 import java.text.ParseException;
@@ -310,6 +311,9 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
 
     private void exportBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBActionPerformed
         File f = new File("TrainerAccount.txt");
+        int export = 0;
+        Manager m = new Manager();
+        
         try{
             FileWriter fw = new FileWriter(f);
             BufferedWriter bw = new BufferedWriter(fw);
@@ -323,11 +327,13 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
 
             bw.close();
             fw.close();
-            JOptionPane.showMessageDialog(this, "Export Successful!");
+            export = 1;
         } catch (IOException ex) {
             Logger.getLogger(ManagerManageBooking.class.getName()).log(Level.SEVERE, null, ex);
+            export = 2;
         }
 
+        m.managetrainer(export);
     }//GEN-LAST:event_exportBActionPerformed
 
     private void updateBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBActionPerformed

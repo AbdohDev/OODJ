@@ -122,7 +122,7 @@ public class TrainerFeedback extends javax.swing.JFrame {
         String TrainerFeedback = Trainer_Feedback.getText();
         String TrainerID = Trainer_ID.getText();
         Feedback f = new Feedback();
-        int create = f.addFeedback(Customer_ID, Trainer_ID, Trainer_Feedback);
+        int create = f.addFeedback(CustomerID, TrainerID, TrainerFeedback);
         
         
         if(create == 1){

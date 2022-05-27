@@ -587,6 +587,8 @@ public class ManagerManageBooking extends javax.swing.JFrame {
     }//GEN-LAST:event_updateBActionPerformed
 
     private void exportBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBActionPerformed
+        Booking b = new Booking();
+        int export = 0;
         File f = new File("Booking.txt");
         try{
             FileWriter fw = new FileWriter(f);
@@ -598,15 +600,15 @@ public class ManagerManageBooking extends javax.swing.JFrame {
                 }
                 bw.newLine();
             }
-            
             bw.close();
             fw.close();
-            JOptionPane.showMessageDialog(this, "Export Successful!");
+            export = 1;
         } catch (IOException ex) {
             Logger.getLogger(ManagerManageBooking.class.getName()).log(Level.SEVERE, null, ex);
+            export = 2;
         }
         
-        
+        b.manage(export);
     }//GEN-LAST:event_exportBActionPerformed
 
     private void deleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBActionPerformed
