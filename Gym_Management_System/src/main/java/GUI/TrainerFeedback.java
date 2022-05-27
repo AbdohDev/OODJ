@@ -5,7 +5,12 @@
 package GUI;
 
 import Class.Feedback;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,6 +42,14 @@ public class TrainerFeedback extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         Trainer_ID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        returnbutton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        bookTable = new javax.swing.JTable();
+        Cust_Paid = new javax.swing.JCheckBox();
+        Booking_ID = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        importB = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +82,53 @@ public class TrainerFeedback extends javax.swing.JFrame {
 
         jLabel3.setText("Trainer ID");
 
+        returnbutton.setText("< Return");
+        returnbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnbuttonActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
+        jLabel4.setText("Trainer: collect payment & provide feedback ");
+
+        bookTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Booking ID", "Customer ID", "Trainer ID", "Payment"
+            }
+        ));
+        bookTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bookTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(bookTable);
+
+        Cust_Paid.setText("Customer Paid");
+        Cust_Paid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cust_PaidActionPerformed(evt);
+            }
+        });
+
+        Booking_ID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Booking_IDActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Booking ID:");
+
+        importB.setText("Import");
+        importB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -76,43 +136,82 @@ public class TrainerFeedback extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
+                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Customer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Trainer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1)))
+                            .addComponent(jButton1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(64, 64, 64)
+                                .addComponent(Cust_Paid))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Customer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(493, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Booking_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(returnbutton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(36, 36, 36))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(importB, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(152, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(returnbutton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(importB, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Booking_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(Customer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Customer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Trainer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
+                        .addGap(52, 52, 52)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Trainer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(68, 68, 68)
-                .addComponent(jButton1)
-                .addGap(89, 89, 89))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Cust_Paid)
+                                .addGap(44, 44, 44)))
+                        .addComponent(jButton1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -120,8 +219,8 @@ public class TrainerFeedback extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String CustomerID = Customer_ID.getText();
-        String TrainerFeedback = Trainer_Feedback.getText();
         String TrainerID = Trainer_ID.getText();
+        String TrainerFeedback = Trainer_Feedback.getText();
         Feedback f = new Feedback();
         int create = f.addFeedback(CustomerID, TrainerID, TrainerFeedback);
         
@@ -152,6 +251,70 @@ public class TrainerFeedback extends javax.swing.JFrame {
     private void Trainer_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Trainer_IDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Trainer_IDActionPerformed
+
+    private void returnbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbuttonActionPerformed
+        TrainerMenu main = new TrainerMenu();
+        main.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_returnbuttonActionPerformed
+
+    private void bookTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookTableMouseClicked
+        DefaultTableModel tm = (DefaultTableModel)bookTable.getModel();
+
+        String bookid = tm.getValueAt(bookTable.getSelectedRow(),0).toString();
+        String custid = tm.getValueAt(bookTable.getSelectedRow(),1).toString();
+        String trainerid = tm.getValueAt(bookTable.getSelectedRow(),2).toString();
+        String paymentyn = tm.getValueAt(bookTable.getSelectedRow(),3).toString();
+
+        
+
+        Booking_ID.setText(bookid);
+        Customer_ID.setText(custid);
+        Trainer_ID.setText(trainerid);
+        java.util.Date tdate = null;
+        try {
+            tdate = new SimpleDateFormat("dd-MM-yyyy").parse(trainDate);
+        } catch (ParseException ex) {
+            Logger.getLogger(ManagerManageBooking.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+
+        trainerCmb1.removeAllItems();
+        String[] arr = scanGoal(custgoal);
+        for (String arr1 : arr) {
+            trainerCmb1.addItem(arr1);
+        }
+        trainerCmb1.setSelectedItem(trainerid);
+
+    }//GEN-LAST:event_bookTableMouseClicked
+
+    private void Cust_PaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cust_PaidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cust_PaidActionPerformed
+
+    private void Booking_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Booking_IDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Booking_IDActionPerformed
+
+    private void importBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importBActionPerformed
+        File fb = new File("Feedback.txt");
+        try {
+            FileReader fr = new FileReader(fb);
+            BufferedReader br3 = new BufferedReader(fr);
+
+            DefaultTableModel tm = (DefaultTableModel)bookTable.getModel();
+            Object[] records = br3.lines().toArray();
+
+            for (int i = 0; i < records.length; i++) {
+                String[] row = records[i].toString().split(",");
+                tm.addRow(row);
+            }
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(this,
+                "Oops, file not found.",
+                "Warning:",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_importBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,13 +352,21 @@ public class TrainerFeedback extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Booking_ID;
+    private javax.swing.JCheckBox Cust_Paid;
     private javax.swing.JTextField Customer_ID;
     private javax.swing.JTextArea Trainer_Feedback;
     private javax.swing.JTextField Trainer_ID;
+    private javax.swing.JTable bookTable;
+    private javax.swing.JButton importB;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton returnbutton;
     // End of variables declaration//GEN-END:variables
 }

@@ -56,6 +56,11 @@ public class TrainerMenu extends javax.swing.JFrame {
         collectPayButton.setText("Collect Payment");
 
         provideFeedButton.setText("Provide Feedback");
+        provideFeedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                provideFeedButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,13 +75,12 @@ public class TrainerMenu extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(returnbutton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(provideFeedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(collectPayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
-                        .addComponent(checkTrainButton)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(collectPayButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(checkTrainButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(provideFeedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,7 +103,9 @@ public class TrainerMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkTrainButtonActionPerformed
-        // TODO add your handling code here:
+        TrainerCheckSession tcs = new TrainerCheckSession();
+        tcs.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_checkTrainButtonActionPerformed
 
     private void returnbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbuttonActionPerformed
@@ -113,6 +119,12 @@ public class TrainerMenu extends javax.swing.JFrame {
             TrainerMenu rm = new TrainerMenu();
         }
     }//GEN-LAST:event_returnbuttonActionPerformed
+
+    private void provideFeedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_provideFeedButtonActionPerformed
+        TrainerFeedback tr = new TrainerFeedback();
+        tr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_provideFeedButtonActionPerformed
 
     /**
      * @param args the command line arguments

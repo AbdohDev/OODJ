@@ -225,6 +225,12 @@ public class ManagerManageBooking extends javax.swing.JFrame {
 
         jLabel14.setText("Trainer:");
 
+        trainerCmb1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trainerCmb1ActionPerformed(evt);
+            }
+        });
+
         jLabel15.setText("Training Date:");
 
         jLabel16.setText("Start Training Time:");
@@ -669,6 +675,10 @@ public class ManagerManageBooking extends javax.swing.JFrame {
         etimeChooser.setText("");
         amountTxb.setText("");
     }//GEN-LAST:event_addBActionPerformed
+
+    private void trainerCmb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trainerCmb1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_trainerCmb1ActionPerformed
 
     /**
      * @param args the command line arguments
