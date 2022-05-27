@@ -8,9 +8,14 @@ import Class.Feedback;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -60,6 +65,7 @@ public class TrainerFeedback extends javax.swing.JFrame {
         importB = new javax.swing.JButton();
         updateB = new javax.swing.JButton();
         deleteB = new javax.swing.JButton();
+        exportB = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,6 +152,13 @@ public class TrainerFeedback extends javax.swing.JFrame {
             }
         });
 
+        exportB.setText("Export");
+        exportB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,7 +177,9 @@ public class TrainerFeedback extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(importB, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(143, 143, 143))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(exportB, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -204,7 +219,9 @@ public class TrainerFeedback extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(returnbutton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(importB, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(importB, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exportB, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -363,6 +380,14 @@ public class TrainerFeedback extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Please select a record to modify~");
         }
+        Customer_ID.setText("");
+        Trainer_ID.setText("");
+        Cust_Paid.setText("");
+        Trainer_Feedback.setText("");
+
+
+
+
     }//GEN-LAST:event_updateBActionPerformed
 
     private void deleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBActionPerformed
@@ -381,6 +406,31 @@ public class TrainerFeedback extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_deleteBActionPerformed
+
+    private void exportBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBActionPerformed
+        Feedback b = new Feedback();
+        int export = 0;
+        File f = new File("feedback.txt");
+        try{
+            FileWriter fw = new FileWriter(f);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            for (int i = 0; i < bookTable.getRowCount(); i++) {
+                for (int j = 0; j < bookTable.getColumnCount(); j++) {
+                    bw.write(bookTable.getModel().getValueAt(i,j).toString()+",");
+                }
+                bw.newLine();
+            }
+            bw.close();
+            fw.close();
+            export = 1;
+        } catch (IOException ex) {
+            Logger.getLogger(ManagerManageBooking.class.getName()).log(Level.SEVERE, null, ex);
+            export = 2;
+        }
+
+        b.manage(export);
+    }//GEN-LAST:event_exportBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -424,6 +474,7 @@ public class TrainerFeedback extends javax.swing.JFrame {
     private javax.swing.JTextField Trainer_ID;
     private javax.swing.JTable bookTable;
     private javax.swing.JButton deleteB;
+    private javax.swing.JButton exportB;
     private javax.swing.JButton importB;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

@@ -35,6 +35,8 @@ public class ManagerManageBooking extends javax.swing.JFrame {
         int x = (int) dim.getWidth() / 2 - this.getWidth() / 2;
         int y = (int) dim.getHeight() / 2 - this.getHeight() / 2;
         this.setLocation(x, y);
+        setTitle("Manager: Manage Training");
+
     }
     
     File ft = new File("TrainerAccount.txt");

@@ -45,5 +45,13 @@ public class Feedback {
         
         return create;
     }
+        public void manage(int export){
+        if(export == 1){
+            JOptionPane.showMessageDialog(null, "Export Successful!\nThe file is modified.");
+        }else{
+            JOptionPane.showMessageDialog(null, "Export Fail!\nThe file is not modified.");
+        }
+        
+    }
 }
 
