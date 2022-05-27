@@ -5,6 +5,8 @@
 package GUI;
 
 import Class.Booking;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,6 +30,11 @@ public class ManagerManageBooking extends javax.swing.JFrame {
         initComponents();
         trainerCmb.setSelectedItem(null);
         bookTable.setAutoCreateRowSorter(true);
+        Toolkit tk = this.getToolkit();
+        Dimension dim = tk.getScreenSize();
+        int x = (int) dim.getWidth() / 2 - this.getWidth() / 2;
+        int y = (int) dim.getHeight() / 2 - this.getHeight() / 2;
+        this.setLocation(x, y);
     }
     
     File ft = new File("TrainerAccount.txt");

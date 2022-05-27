@@ -6,6 +6,8 @@ package GUI;
 
 import Class.Manager;
 import Class.Trainer;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,6 +28,11 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
     public ManagerManageTrainer() {
         initComponents();
         trainerT.setAutoCreateRowSorter(true);
+        Toolkit tk = this.getToolkit();
+        Dimension dim = tk.getScreenSize();
+        int x = (int) dim.getWidth() / 2 - this.getWidth() / 2;
+        int y = (int) dim.getHeight() / 2 - this.getHeight() / 2;
+        this.setLocation(x, y);
     }
     
     /**

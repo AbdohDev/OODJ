@@ -5,6 +5,8 @@
 package GUI;
 
 import Class.Program;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +20,11 @@ public class ManagerManageProgram extends javax.swing.JFrame {
      */
     public ManagerManageProgram() {
         initComponents();
+        Toolkit tk = this.getToolkit();
+        Dimension dim = tk.getScreenSize();
+        int x = (int) dim.getWidth() / 2 - this.getWidth() / 2;
+        int y = (int) dim.getHeight() / 2 - this.getHeight() / 2;
+        this.setLocation(x, y);
     }
 
     /**

@@ -4,6 +4,8 @@
  */
 package GUI;
 import Class.Manager;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.*;
@@ -20,6 +22,11 @@ public class ManagerLogin extends javax.swing.JFrame {
      */
     public ManagerLogin() {
         initComponents();
+        Toolkit tk = this.getToolkit();
+        Dimension dim = tk.getScreenSize();
+        int x = (int) dim.getWidth() / 2 - this.getWidth() / 2;
+        int y = (int) dim.getHeight() / 2 - this.getHeight() / 2;
+        this.setLocation(x, y);
     }
     
     /**
