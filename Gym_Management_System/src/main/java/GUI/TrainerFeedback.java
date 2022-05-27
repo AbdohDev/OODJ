@@ -266,27 +266,32 @@ public class TrainerFeedback extends javax.swing.JFrame {
         String bookid = tm.getValueAt(bookTable.getSelectedRow(),0).toString();
         String custid = tm.getValueAt(bookTable.getSelectedRow(),1).toString();
         String trainerid = tm.getValueAt(bookTable.getSelectedRow(),2).toString();
-        String paymentyn = tm.getValueAt(bookTable.getSelectedRow(),3).toString();
+       // String paymentyn = tm.getValueAt(bookTable.getSelectedRow(),3).toString();
+       String feedback = tm.getValueAt(bookTable.getSelectedRow(),3).toString();
 
         
 
         Booking_ID.setText(bookid);
         Customer_ID.setText(custid);
         Trainer_ID.setText(trainerid);
-        java.util.Date tdate = null;
+        Trainer_Feedback.setText(feedback);
+        
+        
+        /*
         try {
             tdate = new SimpleDateFormat("dd-MM-yyyy").parse(trainDate);
         } catch (ParseException ex) {
             Logger.getLogger(ManagerManageBooking.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
 
+        /*
         trainerCmb1.removeAllItems();
         String[] arr = scanGoal(custgoal);
         for (String arr1 : arr) {
             trainerCmb1.addItem(arr1);
         }
-        trainerCmb1.setSelectedItem(trainerid);
+        trainerCmb1.setSelectedItem(trainerid);*/
 
     }//GEN-LAST:event_bookTableMouseClicked
 
