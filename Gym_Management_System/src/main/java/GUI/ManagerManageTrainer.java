@@ -73,7 +73,7 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Trainer ID", "Name", "Password", "Contact", "Goal"
+                "Trainer ID", "Name", "Password", "Contact", "Program"
             }
         ));
         trainerT.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,7 +112,7 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
             }
         });
 
-        nameLabel2.setText("Fitness Goal:");
+        nameLabel2.setText("Fitness Program:");
 
         comboGoal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lose Weight", "Build Muscle", "Wellness" }));
         comboGoal.addActionListener(new java.awt.event.ActionListener() {

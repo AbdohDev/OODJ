@@ -201,7 +201,7 @@ public class ManagerManageBooking extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Booking ID", "Customer ID", "Goal", "Trainer ID", "Training Date", "Starting Time", "Duration", "Ending TIme", "Amount"
+                "Booking ID", "Customer ID", "Program", "Trainer ID", "Training Date", "Starting Time", "Duration", "Ending TIme", "Amount"
             }
         ));
         bookTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -223,7 +223,7 @@ public class ManagerManageBooking extends javax.swing.JFrame {
         jLabel12.setMaximumSize(new java.awt.Dimension(27, 16));
         jLabel12.setMinimumSize(new java.awt.Dimension(27, 16));
 
-        jLabel13.setText("Goal:");
+        jLabel13.setText("Program:");
 
         goalCmb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lose Weight", "Build Muscle", "Wellness" }));
         goalCmb1.addActionListener(new java.awt.event.ActionListener() {
