@@ -95,6 +95,7 @@ public class Trainer extends Staff{
         return found;
     }
     
+    //Register
     public int register(String id,String name,String pw,String cont,String goal){
         int create = 0;
         FileWriter w = null;

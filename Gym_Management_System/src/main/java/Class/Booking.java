@@ -135,4 +135,14 @@ public class Booking {
         }
         return create;
     }
+    
+    //Update Booking
+    public void manage(int export){
+        if(export == 1){
+            JOptionPane.showMessageDialog(null, "Export Successful!\nThe file is modified.");
+        }else{
+            JOptionPane.showMessageDialog(null, "Export Fail!\nThe file is not modified.");
+        }
+        
+    }
 }
