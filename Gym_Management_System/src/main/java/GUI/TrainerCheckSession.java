@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,6 +29,14 @@ public class TrainerCheckSession extends javax.swing.JFrame {
      */
     public TrainerCheckSession() {
         initComponents();
+        
+//https://stackoverflow.com/questions/22416647/how-to-get-the-center-x-and-y-of-desktop-with-swing
+
+        Toolkit tk = this.getToolkit();
+        Dimension dim = tk.getScreenSize();
+        int x = (int) dim.getWidth() / 2 - this.getWidth() / 2;
+        int y = (int) dim.getHeight() / 2 - this.getHeight() / 2;
+        this.setLocation(x, y);
     }
 
     /**
@@ -82,7 +93,7 @@ public class TrainerCheckSession extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Filter by Customer ID");
+        jLabel1.setText("Filter by Trainer ID");
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
