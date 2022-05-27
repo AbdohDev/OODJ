@@ -300,7 +300,7 @@
               <Table columnCount="9" rowCount="0">
                 <Column editable="true" title="Booking ID" type="java.lang.Object"/>
                 <Column editable="true" title="Customer ID" type="java.lang.Object"/>
-                <Column editable="true" title="Goal" type="java.lang.Object"/>
+                <Column editable="true" title="Program" type="java.lang.Object"/>
                 <Column editable="true" title="Trainer ID" type="java.lang.Object"/>
                 <Column editable="true" title="Training Date" type="java.lang.Object"/>
                 <Column editable="true" title="Starting Time" type="java.lang.Object"/>
@@ -393,7 +393,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Goal:"/>
+        <Property name="text" type="java.lang.String" value="Program:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="goalCmb1">

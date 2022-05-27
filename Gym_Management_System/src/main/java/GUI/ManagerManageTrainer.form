@@ -172,7 +172,7 @@
                 <Column editable="true" title="Name" type="java.lang.Object"/>
                 <Column editable="true" title="Password" type="java.lang.Object"/>
                 <Column editable="true" title="Contact" type="java.lang.Object"/>
-                <Column editable="true" title="Goal" type="java.lang.Object"/>
+                <Column editable="true" title="Program" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -259,7 +259,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="nameLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fitness Goal:"/>
+        <Property name="text" type="java.lang.String" value="Fitness Program:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboGoal">
