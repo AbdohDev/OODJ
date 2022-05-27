@@ -125,4 +125,27 @@ public class Trainer extends Staff{
         }
         return create;
     }
+    
+    File flog = new File("Logging_Trainer.txt");
+    @Override
+    public void logging(String id, String ldatetime, String result){
+        FileWriter w = null;
+
+        if(!flog.exists()) {
+            try{
+                flog.createNewFile();
+            }catch(IOException e){
+                System.out.println("Unable to create file due to " + e);
+            }
+        }
+
+        try{
+            w = new FileWriter(flog, true);
+            w.write(""+ id + "," + ldatetime + "," + result);
+            w.write(System.getProperty("line.separator"));
+            w.close();
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null,"Oops! Log Fail!");
+        }
+    }
 }

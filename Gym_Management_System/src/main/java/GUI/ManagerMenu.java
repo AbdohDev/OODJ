@@ -4,6 +4,11 @@
  */
 package GUI;
 
+import Class.Manager;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -61,7 +66,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         jLabel1.setText("Manager Main Menu");
 
-        returnbutton.setText("< Return");
+        returnbutton.setText("< Log Out");
         returnbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnbuttonActionPerformed(evt);
@@ -125,10 +130,20 @@ public class ManagerMenu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_viewBookButtonActionPerformed
 
+    
+    
     private void returnbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbuttonActionPerformed
-        MainMenu main = new MainMenu();
-        main.setVisible(true);
-        this.setVisible(false);
+        
+        int logout = JOptionPane.showConfirmDialog(null, "Are you sure to log out?");
+        
+        if(logout == 0){
+            MainMenu main = new MainMenu();
+            main.setVisible(true);
+            this.setVisible(false);
+        }else{
+            ManagerMenu rm = new ManagerMenu();
+        }
+        
     }//GEN-LAST:event_returnbuttonActionPerformed
 
     private void manageTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageTrainButtonActionPerformed

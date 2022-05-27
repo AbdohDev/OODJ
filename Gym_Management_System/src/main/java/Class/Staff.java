@@ -32,4 +32,6 @@ public abstract class Staff extends Person{
     }
     
     public abstract boolean login(String id, String pw);
+    
+    public abstract void logging(String id, String ldatetime, String result);
 }

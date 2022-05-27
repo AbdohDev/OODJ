@@ -5,6 +5,8 @@
 package GUI;
 
 import Class.Trainer;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -128,22 +130,30 @@ public class TrainerLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordTextboxActionPerformed
 
     private void TrainerLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrainerLoginButtonActionPerformed
-        String mid = this.UseridTextbox.getText();
+        String tid = this.UseridTextbox.getText();
         String mpw = new String(this.PasswordTextbox.getPassword());
-        Trainer m = new Trainer();
-        boolean found = m.login(mid,mpw);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+        Date now = new Date();
+        String ldatetime = formatter.format(now);
+        String result = "";
+        Trainer t = new Trainer();
+        boolean found = t.login(tid,mpw);
         if (found){
+            result = "Login Success";
             JOptionPane.showMessageDialog(null,"Login Successfull!");
             TrainerMenu tm = new TrainerMenu();
             tm.setVisible(true);
             this.setVisible(false);
         }else{
+            result = "Login Fail";
             JOptionPane.showMessageDialog(this,
                 "Oops, Wrong User ID or Password!\nPlease try again.",
                 "Warning:",JOptionPane.WARNING_MESSAGE);
             UseridTextbox.setText("");
             PasswordTextbox.setText("");
         }
+        
+        t.logging(tid, ldatetime, result);
     }//GEN-LAST:event_TrainerLoginButtonActionPerformed
 
     /**

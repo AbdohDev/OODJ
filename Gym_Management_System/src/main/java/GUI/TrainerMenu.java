@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -34,7 +36,12 @@ public class TrainerMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        returnbutton.setText("< Return");
+        returnbutton.setText("< Log Out");
+        returnbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnbuttonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         jLabel1.setText("Trainer Main Menu");
@@ -94,6 +101,18 @@ public class TrainerMenu extends javax.swing.JFrame {
     private void checkTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkTrainButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkTrainButtonActionPerformed
+
+    private void returnbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbuttonActionPerformed
+        int logout = JOptionPane.showConfirmDialog(null, "Are you sure to log out?");
+        
+        if(logout == 0){
+            MainMenu main = new MainMenu();
+            main.setVisible(true);
+            this.setVisible(false);
+        }else{
+            TrainerMenu rm = new TrainerMenu();
+        }
+    }//GEN-LAST:event_returnbuttonActionPerformed
 
     /**
      * @param args the command line arguments

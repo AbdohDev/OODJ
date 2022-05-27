@@ -70,8 +70,11 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="returnbutton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt; Return"/>
+        <Property name="text" type="java.lang.String" value="&lt; Log Out"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnbuttonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
