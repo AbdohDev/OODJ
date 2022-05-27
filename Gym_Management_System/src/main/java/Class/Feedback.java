@@ -17,7 +17,7 @@ public class Feedback {
     
         File f = new File("Feedback.txt");
 
-        public int addFeedback(String CustomerID, String TrainerID, String TrainerFeedback){
+        public int addFeedback(String CustomerID, String TrainerID,String PaymentYN, String TrainerFeedback){
         int create = 0;
         FileWriter w = null;
         
@@ -30,9 +30,9 @@ public class Feedback {
         }
         
         try{
-            if(CustomerID.length() != 0 && TrainerID.length() != 0 && TrainerFeedback.length() != 0){
+            if(CustomerID.length() != 0 && TrainerID.length() != 0 && PaymentYN.length() != 0 && TrainerFeedback.length() != 0){
                 w = new FileWriter(f, true);
-                w.write(""+ CustomerID + "," + TrainerID + "," + TrainerFeedback);
+                w.write(""+ CustomerID + "," + TrainerID + "," + PaymentYN + "," + TrainerFeedback);
                 w.write(System.getProperty("line.separator"));
                 w.close();
                 create = 1;
