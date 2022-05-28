@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -27,6 +28,7 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
      */
     public ManagerManageTrainer() {
         initComponents();
+        comboGoal.setSelectedItem(null);
         trainerT.setAutoCreateRowSorter(true);
         Toolkit tk = this.getToolkit();
         Dimension dim = tk.getScreenSize();
@@ -35,6 +37,52 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
         this.setLocation(x, y);
         setTitle("Manager: Manage Trainer");
 
+    }
+    
+    File ft = new File("Program.txt");
+    public String[] scanGoal(){
+        String[] TID = null;
+        String[] Tarr = null;
+        BufferedReader br = null;
+        BufferedReader br2 = null;
+        int count =0;
+        int k =0;
+        try {
+            br = new BufferedReader(new FileReader(ft));
+            String line = "";
+            while((line = br.readLine()) != null){
+                count++;
+                TID = new String[50];
+                br2 = new BufferedReader(new FileReader(ft));
+                line = "";
+                int i=0;
+                while((line = br2.readLine()) != null){
+                    String[] rec = line.split(",");
+                    TID[i] = rec[0];
+                    i++;
+                }
+                br.close();
+                br2.close();
+
+                int j = TID.length - 1;
+                
+                while(k <= j){
+                    if(TID[j] == null){
+                        --j;
+                    }else if(TID[k] != null){
+                        ++k;
+                    }else{
+                        TID[k] = TID[j];
+                        TID[j] = null;
+                        ++k;
+                        --j;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Program not found." + e);
+        }
+        return Arrays.copyOfRange(TID,0,k);
     }
     
     /**
@@ -46,6 +94,7 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         trainerT = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -65,6 +114,9 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
         updateB = new javax.swing.JButton();
         importB = new javax.swing.JButton();
         addB = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,7 +166,6 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
 
         nameLabel2.setText("Fitness Program:");
 
-        comboGoal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lose Weight", "Build Muscle", "Wellness" }));
         comboGoal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboGoalActionPerformed(evt);
@@ -169,6 +220,13 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Update Program");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,7 +263,8 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(conttxb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(conttxb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(36, 36, 36)
@@ -213,7 +272,7 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(exportB, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(updateB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(deleteB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,7 +283,7 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,20 +293,23 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(conttxb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(62, 62, 62)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(nameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(comboGoal, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(conttxb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(nameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(comboGoal, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                                 .addComponent(idtxb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(nametxb, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,7 +330,7 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
                         .addComponent(deleteB, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -287,7 +349,8 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
     }//GEN-LAST:event_conttxbActionPerformed
 
     private void comboGoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboGoalActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_comboGoalActionPerformed
 
     private void returnBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttnActionPerformed
@@ -422,7 +485,9 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
 
             Trainer t = new Trainer();
             int create = t.register(tid,name,pw,cont,goal);
+            String rec[] = {tid,name,pw,cont,goal};
             if(create == 1){
+                tm.addRow(rec);
                 JOptionPane.showMessageDialog(null,"Trainer Registration Success!");
             }else if(create == 2){
                 JOptionPane.showMessageDialog(this,
@@ -442,6 +507,16 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
         pwtxb.setText("");
         conttxb.setText("");
     }//GEN-LAST:event_addBActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        comboGoal.removeAllItems();
+        String[] arr = scanGoal();
+        for (String arr1 : arr) {
+            comboGoal.addItem(arr1);
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -489,6 +564,8 @@ public class ManagerManageTrainer extends javax.swing.JFrame {
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idtxb;
     private javax.swing.JButton importB;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
